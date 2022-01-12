@@ -43,7 +43,7 @@ class Service extends Controller
 			'icon' => 'required',
         ]);
     
-        Service::create($request->all());
+        Services::create($request->all());
      
         return redirect()->route('services.index')
                         ->with('success','service created successfully.');
@@ -55,7 +55,7 @@ class Service extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Service $service)
+    public function show(Services $service)
     {
         return view('services.show',compact('service'));
     }
@@ -66,7 +66,7 @@ class Service extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service $service)
+    public function edit(Services $service)
     {
          return view('services.edit',compact('service'));
     }
@@ -78,7 +78,7 @@ class Service extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request, Services $service)
     {
           $request->validate([
             'name' => 'required',
@@ -98,7 +98,7 @@ class Service extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Service $service)
+    public function destroy(Services $service)
     {
          $service->delete();
     

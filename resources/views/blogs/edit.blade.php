@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit service</h2>
+                <h2>Edit Blog</h2>
             </div>
            
         </div>
@@ -22,16 +22,16 @@
         </div>
     @endif
   
-    <form action="{{ route('services.update',$service->id) }}" method="POST">
+    <form action="{{ route('blogs.update',$blog->id) }}" method="POST">
         @csrf
         @method('PUT')
    
-         <div class="form-group"><label>Name</label> <input type="text" name="name" class="form-control" placeholder="Enter name" value="{{ $service->name }}" /></div>
-         <div class="form-group"><label>Description</label> <input type="text" name="description" class="form-control" placeholder="Description" value="{{ $service->description }}"/></div>
-	     <div class="form-group"><label>Icon</label> <input type="text" name="icon" class="form-control" value="{{ $service->icon }}" /></div>
+         <div class="form-group"><label>Category</label> <input type="text" name="category" class="form-control" placeholder="Enter name" value="{{ $blog->category }}" /></div>
+         <div class="form-group"><label>Title</label> <input type="text" name="title" class="form-control" placeholder="Description" value="{{ $blog->title }}"/></div>
+	     <div class="form-group"><label>Added By</label> <input type="text" name="added_by" class="form-control" value="{{ $blog->added_by }}" /></div>
 		 
 		 <button type="submit" class="btn btn-sm btn-default">Submit</button>
-		 <a class="btn btn-sm btn-default " href="{{ route('services.index') }}" align="right"> Back</a>
+		 <a class="btn btn-sm btn-default " href="{{ route('blogs.index') }}" align="right"> Back</a>
     </form>
 </div>
 @endsection

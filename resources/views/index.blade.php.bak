@@ -15,12 +15,12 @@
 
     @include('header')
 
-<section class="hbox stretch">
+<section class="hbox ">
     @include('sidebar')
-<div class="container">
-
+ <div>
     @yield('content')
 </div>
+
 </section>	
 
    	<script src="assets/js/app.v1.js"></script>

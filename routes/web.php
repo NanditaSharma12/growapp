@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Service;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +17,16 @@ use App\Http\Controllers\Service;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.register');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    return view('index');
 })->name('dashboard');
 
 //Route::get('services', Services::class);
 Route::resource('services', Service::class);
+
+Route::resource('blogs', BlogController::class);
+
+Route::resource('contact', ContactController::class);

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Laravel 8 CRUD Application - ItSolutionStuff.com</title>
+    <title>Admin Panel</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
 	 <meta charset="utf-8"/>
         <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav"/>
@@ -15,12 +15,12 @@
 
     @include('header')
 
-<section class="hbox stretch">
+<section class="hbox ">
     @include('sidebar')
-<div class="container">
-
+ <div>
     @yield('content')
 </div>
+
 </section>	
 
    	<script src="assets/js/app.v1.js"></script>

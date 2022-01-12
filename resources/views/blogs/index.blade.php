@@ -10,7 +10,7 @@
    
    
   <section class="panel panel-default">
-	<h2 align="center">Services </h2>
+	<h2 align="center">Blogs </h2>
 		<div class="row wrapper">
              <div class="col-sm-5 m-b-xs"> <select class="input-sm form-control input-s-sm inline v-middle"> <option value="0">Bulk action</option> <option value="1">Delete selected</option> <option value="2">Bulk edit</option> <option value="3">Export</option> </select>                                        
 				<button class="btn btn-sm btn-default">Apply</button> 
@@ -28,26 +28,26 @@
                            <tr>
                                <th width="20"><label class="checkbox m-l m-t-none m-b-none i-checks"><input type="checkbox"><i></i></label></th>
                                <th class="th-sortable" data-toggle="class">No <span class="th-sort"> <i class="fa fa-sort-down text"></i> <i class="fa fa-sort-up text-active"></i> <i class="fa fa-sort"></i> </span> </th>
-                               <th>Name</th>
-                               <th>Description</th>
-                               <th>Icon</th>
+                               <th>Category</th>
+                               <th>Title</th>
+                               <th>Added By</th>
 							   <th width="280px">Action</th>
                            </tr>
                  </thead>
                  <tbody>
-					@foreach ($services as $service)
+					@foreach ($blogs as $blog)
                      <tr>
                          <td><label class="checkbox m-l m-t-none m-b-none i-checks"><input type="checkbox" name="post[]"><i></i></label></td>
                          <td>{{ ++$i }}</td>
-                         <td>{{ $service->name }}</td>
-                         <td>{{ $service->description }}</td>
-						 <td>{{ $service->icon }}</td>
+                         <td>{{ $blog->category }}</td>
+                         <td>{{ $blog->title }}</td>
+						 <td>{{ $blog->added_by }}</td>
                          <td>
-						<form action="{{ route('services.destroy',$service->id) }}" method="POST">
+						<form action="{{ route('blogs.destroy',$blog->id) }}" method="POST">
 
-                                    <!--   <a class="btn btn-info" href="{{ route('services.show',$service->id) }}">Show</a> -->
+                                    <!--   <a class="btn btn-info" href="{{ route('blogs.show',$blog->id) }}">Show</a> -->
                          
-                                       <a class="btn btn-primary" href="{{ route('services.edit',$service->id) }}">Edit</a>
+                                       <a class="btn btn-primary" href="{{ route('blogs.edit',$blog->id) }}">Edit</a>
                          
                                        @csrf
                                        @method('DELETE')
@@ -79,7 +79,7 @@
            </footer>
 </section>
 
-    {!! $services->links() !!}
+    {!! $blogs->links() !!}
       
 @endsection
 

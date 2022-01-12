@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Services;
+use App\Models\Blog;
 use Illuminate\Http\Request;
 
-class Service extends Controller
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +13,10 @@ class Service extends Controller
      */
     public function index()
     {
-        $services = Services::latest()->paginate(5);
+        
+        $blogs = Blog::latest()->paginate(5);
     
-        return view('services.index',compact('services'))
+        return view('blogs.index',compact('blogs'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -26,7 +27,7 @@ class Service extends Controller
      */
     public function create()
     {
-        return view('services.create');
+         return view('blogs.create');
     }
 
     /**
@@ -38,15 +39,15 @@ class Service extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-			//'icon' => 'required',
+            'category' => 'required',
+            'title' => 'required',
+			'added_by' => 'required',
         ]);
     
         Services::create($request->all());
      
-        return redirect()->route('services.index')
-                        ->with('success','service created successfully.');
+        return redirect()->route('blogs.index')
+                        ->with('success','blog created successfully.');
     }
 
     /**
@@ -55,9 +56,9 @@ class Service extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Services $service)
+    public function show(Blog $blog)
     {
-        return view('services.show',compact('service'));
+         return view('blogs.show',compact('blog'));
     }
 
     /**
@@ -66,9 +67,9 @@ class Service extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Services $service)
+    public function edit(Blog $blog)
     {
-         return view('services.edit',compact('service'));
+       return view('blogs.edit',compact('blog'));
     }
 
     /**
@@ -78,18 +79,18 @@ class Service extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Services $service)
+    public function update(Request $request, Blog $blog)
     {
-          $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-			'icon' => 'required',
+       $request->validate([
+            'category' => 'required',
+            'title' => 'required',
+			'added_by' => 'required',
         ]);
     
-        $service->update($request->all());
+        $blog->update($request->all());
     
-        return redirect()->route('services.index')
-                        ->with('success','service updated successfully');
+        return redirect()->route('blogs.index')
+                        ->with('success','blog updated successfully');
     }
 
     /**
@@ -98,11 +99,11 @@ class Service extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Services $service)
+    public function destroy(Blog $blog)
     {
-         $service->delete();
+        $blog->delete();
     
-        return redirect()->route('services.index')
-                        ->with('success','service deleted successfully');
+        return redirect()->route('blogs.index')
+                        ->with('success','blog deleted successfully');
     }
 }

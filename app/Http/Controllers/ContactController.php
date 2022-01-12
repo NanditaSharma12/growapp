@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Services;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
-class Service extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +13,9 @@ class Service extends Controller
      */
     public function index()
     {
-        $services = Services::latest()->paginate(5);
+        $contact_us = Contact::latest()->paginate(5);
     
-        return view('services.index',compact('services'))
+        return view('contact.index',compact('contact_us'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -26,7 +26,7 @@ class Service extends Controller
      */
     public function create()
     {
-        return view('services.create');
+         return view('contact.create');
     }
 
     /**
@@ -37,16 +37,17 @@ class Service extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-			//'icon' => 'required',
+         $request->validate([
+            'phone' => 'required',
+            'email' => 'required',
+			'sms' => 'required',
+			'address' => 'required',
         ]);
     
-        Services::create($request->all());
+        Contact::create($request->all());
      
-        return redirect()->route('services.index')
-                        ->with('success','service created successfully.');
+        return redirect()->route('contact.index')
+                        ->with('success','Contact created successfully.');
     }
 
     /**
@@ -55,9 +56,9 @@ class Service extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Services $service)
+    public function show(Contact $contact)
     {
-        return view('services.show',compact('service'));
+         return view('contact.show',compact('contact'));
     }
 
     /**
@@ -66,9 +67,9 @@ class Service extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Services $service)
+    public function edit(Contact $contact)
     {
-         return view('services.edit',compact('service'));
+       return view('contact.edit',compact('contact'));
     }
 
     /**
@@ -78,18 +79,19 @@ class Service extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Services $service)
+    public function update(Request $request, Contact $contact)
     {
-          $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-			'icon' => 'required',
+         $request->validate([
+            'phone' => 'required',
+            'email' => 'required',
+			'sms' => 'required',
+			'address' => 'required',
         ]);
     
-        $service->update($request->all());
+        $contact->update($request->all());
     
-        return redirect()->route('services.index')
-                        ->with('success','service updated successfully');
+        return redirect()->route('contact.index')
+                        ->with('success','contact updated successfully');
     }
 
     /**
@@ -98,11 +100,11 @@ class Service extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Services $service)
+    public function destroy(Contact $contact)
     {
-         $service->delete();
+        $contact->delete();
     
-        return redirect()->route('services.index')
-                        ->with('success','service deleted successfully');
+        return redirect()->route('contact.index')
+                        ->with('success','contact deleted successfully');
     }
 }
