@@ -2,18 +2,20 @@
 
 @section('content')
 
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
-   
    <section class="vbox">
 	<section>
             <section class="hbox stretch">
 				<section id="content">
                     <section class="vbox">
                         <section class="scrollable padder">
+						
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
+   
+
                             <div class="m-b-md">
                                 <h3 class="m-b-none">Privacy Policy</h3>
                             </div>

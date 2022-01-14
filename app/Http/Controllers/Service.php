@@ -13,12 +13,12 @@ class Service extends Controller
      */
     public function index()
     {
-        $services = Services::latest()->cursorPaginate(5);
+        $services = Services::latest()->paginate(5);
 		
         return view('services.index',compact('services'))
 			->with('i', (request()->input('page', 1) - 1) * 5);
     }
-
+	
     /**
      * Show the form for creating a new resource.
      *

@@ -1,24 +1,25 @@
 @extends('index')
 
 @section('content')
-
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
-   
 	<section class="vbox">
 	<section>
             <section class="hbox stretch">
 				<section id="content">
                     <section class="vbox">
                         <section class="scrollable padder">
+						
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
+   
+
                             <div class="m-b-md">
                                 <h3 class="m-b-none">Services</h3>
                             </div>
                             <section class="panel panel-default">
-	<header class="panel-heading">Manage Services </header>
+	<header class="panel-heading font-bold">Manage Services </header>
 		<div class="row wrapper">
              <div class="col-sm-5 m-b-xs"> <select class="input-sm form-control input-s-sm inline v-middle"> <option value="0">Bulk action</option> <option value="1">Delete selected</option> <option value="2">Bulk edit</option> <option value="3">Export</option> </select>                                        
 				<button class="btn btn-sm btn-default">Apply</button> 
@@ -84,6 +85,7 @@
 						</div>
 			</div>
            </footer>
+		    {!! $services->links() !!}
 </section>
                         </section>
                     </section> <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a> 
@@ -93,7 +95,7 @@
         </section>
     </section>
    
-      {!! $services->links() !!}
+     
 	  
 @endsection
 

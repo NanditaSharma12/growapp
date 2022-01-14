@@ -2,12 +2,6 @@
 
 @section('content')
 
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
-   
    <section class="vbox">
 	<section>
             <section class="hbox stretch">
@@ -18,6 +12,14 @@
                                 <h3 class="m-b-none">Book An Appointment</h3>
                             </div>
   <section class="panel panel-default">
+  
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
+   
+
   <header class="panel-heading">Manage Appointments </header>
 	
 		<div class="row wrapper">

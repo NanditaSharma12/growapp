@@ -2,7 +2,14 @@
    
 @section('content')
 
-   
+    <section class="vbox">
+  <section>
+   <section class="hbox stretch">
+   <section id="content">
+      <section class="vbox">
+        <section class="scrollable padder">
+		<div class="row">
+			<div class="col-md-6"> 
    
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -15,14 +22,7 @@
         </div>
     @endif
   
-   <section class="vbox">
-  <section>
-   <section class="hbox stretch">
-   <section id="content">
-      <section class="vbox">
-        <section class="scrollable padder">
-		<div class="row">
-			<div class="col-md-6">
+ 
 		 <div class="m-b-md"><h3 class="m-b-none">Policy</h3></div>
 	<section class="panel panel-default">
 	<header class="panel-heading font-bold">Edit Policy <a class="btn btn-sm btn-default pull-right" href="{{ route('policy.index') }}" align="right"> Back</a></header>
