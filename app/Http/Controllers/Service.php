@@ -13,10 +13,10 @@ class Service extends Controller
      */
     public function index()
     {
-        $services = Services::latest()->paginate(5);
-    
+        $services = Services::latest()->cursorPaginate(5);
+		
         return view('services.index',compact('services'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+			->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -37,13 +37,25 @@ class Service extends Controller
      */
     public function store(Request $request)
     {
+		
         $request->validate([
             'name' => 'required',
             'description' => 'required',
-			'icon' => 'required',
+			//'icon' => 'required',
+			'icon' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+			
         ]);
-    
-        Services::create($request->all());
+		
+		$input = $request->all();
+  
+        if ($image = $request->file('icon')) {
+            $destinationPath = 'uploads/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['icon'] = "$profileImage";
+        }
+  
+        Services::create($input);
      
         return redirect()->route('services.index')
                         ->with('success','service created successfully.');
@@ -83,10 +95,22 @@ class Service extends Controller
           $request->validate([
             'name' => 'required',
             'description' => 'required',
-			'icon' => 'required',
+			//'icon' => 'required',
+			
         ]);
     
-        $service->update($request->all());
+		$input = $request->all();
+  
+        if ($image = $request->file('icon')) {
+            $destinationPath = 'uploads/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['icon'] = "$profileImage";
+        }else{
+            unset($input['icon']);
+        }
+	
+        $service->update($input);
     
         return redirect()->route('services.index')
                         ->with('success','service updated successfully');

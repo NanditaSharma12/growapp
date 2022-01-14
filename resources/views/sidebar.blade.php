@@ -1,4 +1,7 @@
- <aside class="bg-black aside-md hidden-print hidden-xs" id="nav">
+
+  
+
+		<aside class="bg-black aside-md hidden-print hidden-xs" id="nav" style="height:90vh;">
                         <section class="vbox">
                             <section class="w-f scrollable">
                                 <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="10px" data-railOpacity="0.2">
@@ -11,10 +14,10 @@
                                                 </span>
                                                 <span class="hidden-nav-xs clear">
                                                     <span class="block m-t-xs">
-                                                        <strong class="font-bold text-lt">John.Smith</strong>
+                                                        <strong class="font-bold text-lt">Admin</strong>
                                                         <b class="caret"></b>
                                                     </span>
-                                                    <span class="text-muted text-xs block">Art Director</span>
+                                                    <span class="text-muted text-xs block"></span>
                                                 </span>
                                             </a>
                                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
@@ -36,7 +39,7 @@
                                                 </li>
                                                 <li class="divider"></li>
                                                 <li>
-                                                    <a href="modal.lockme.html" data-toggle="ajaxModal">Logout</a>
+                                                    <a href="" data-toggle="ajaxModal">Logout</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -137,18 +140,12 @@
                                                 </a>
                                                 <ul class="nav dk">
                                                     <li>
-                                                        <a href="profile.html" class="auto">
+                                                        <a href="{{ route('appointment.index') }}" class="auto">
                                                             <i class="i i-dot"></i>
                                                             <span>Manage Appointments</span>
                                                         </a>
                                                     </li>
-                                                    <li>
-                                                        <a href="profile-2.html" class="auto">
-                                                            <i class="i i-dot"></i>
-                                                            <span>Add Appointments</span>
-                                                        </a>
-                                                    </li>
-                                                   
+                                                    
                                                 </ul>
                                             </li>
                                             <li>
@@ -162,15 +159,15 @@
                                                 </a>
                                                 <ul class="nav dk">
                                                     <li>
-                                                        <a href="mail.html" class="auto">
+                                                        <a href="{{ route('policy.index') }}" class="auto">
                                                             <i class="i i-dot"></i>
-                                                            <span>Manage </span>
+                                                            <span>Manage Policy</span>
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="fullcalendar.html" class="auto">
+                                                        <a href="{{ route('policy.create') }}" class="auto">
                                                             <i class="i i-dot"></i>
-                                                            <span>Add</span>
+                                                            <span>Add Policy</span>
                                                         </a>
                                                     </li>
                                                    
@@ -230,7 +227,7 @@
                                     <!-- / nav -->
                                 </div>
                             </section>
-                            <footer class="footer hidden-xs no-padder text-center-nav-xs">
+                            <footer class="footer hidden-xs no-padder text-center-nav-xs" style="margin-top:80%;">
                                 <a href="modal.lockme.html" data-toggle="ajaxModal" class="btn btn-icon icon-muted btn-inactive pull-right m-l-xs m-r-xs hidden-nav-xs">
                                     <i class="i i-logout"></i>
                                 </a>
@@ -241,3 +238,6 @@
                             </footer>
                         </section>
                     </aside>
+		
+			
+		

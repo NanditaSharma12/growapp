@@ -8,9 +8,17 @@
         </div>
     @endif
    
-   
-  <section class="panel panel-default">
-	<h2 align="center">Services </h2>
+	<section class="vbox">
+	<section>
+            <section class="hbox stretch">
+				<section id="content">
+                    <section class="vbox">
+                        <section class="scrollable padder">
+                            <div class="m-b-md">
+                                <h3 class="m-b-none">Services</h3>
+                            </div>
+                            <section class="panel panel-default">
+	<header class="panel-heading">Manage Services </header>
 		<div class="row wrapper">
              <div class="col-sm-5 m-b-xs"> <select class="input-sm form-control input-s-sm inline v-middle"> <option value="0">Bulk action</option> <option value="1">Delete selected</option> <option value="2">Bulk edit</option> <option value="3">Export</option> </select>                                        
 				<button class="btn btn-sm btn-default">Apply</button> 
@@ -26,38 +34,37 @@
 			<table class="table table-striped b-t b-light">
 				<thead>
                            <tr>
-                               <th width="20"><label class="checkbox m-l m-t-none m-b-none i-checks"><input type="checkbox"><i></i></label></th>
-                               <th class="th-sortable" data-toggle="class">No <span class="th-sort"> <i class="fa fa-sort-down text"></i> <i class="fa fa-sort-up text-active"></i> <i class="fa fa-sort"></i> </span> </th>
+                                <th class="th-sortable" data-toggle="class">No <span class="th-sort"> <i class="fa fa-sort-down text"></i> <i class="fa fa-sort-up text-active"></i> <i class="fa fa-sort"></i> </span> </th>
                                <th>Name</th>
-                               <th>Description</th>
+							   <th>Description</th>
                                <th>Icon</th>
-							   <th width="280px">Action</th>
+                               <th>Action</th>
                            </tr>
                  </thead>
-                 <tbody>
-					@foreach ($services as $service)
-                     <tr>
-                         <td><label class="checkbox m-l m-t-none m-b-none i-checks"><input type="checkbox" name="post[]"><i></i></label></td>
-                         <td>{{ ++$i }}</td>
-                         <td>{{ $service->name }}</td>
-                         <td>{{ $service->description }}</td>
-						 <td>{{ $service->icon }}</td>
-                         <td>
-						<form action="{{ route('services.destroy',$service->id) }}" method="POST">
-
-                                    <!--   <a class="btn btn-info" href="{{ route('services.show',$service->id) }}">Show</a> -->
-                         
-                                       <a class="btn btn-primary" href="{{ route('services.edit',$service->id) }}">Edit</a>
-                         
-                                       @csrf
-                                       @method('DELETE')
-                         
-							<button type="submit" class="btn btn-danger">Delete</button>
-						</form>
-						</td>
-                      </tr>
-					  @endforeach
-                 </tbody>
+                <tbody>
+											@foreach ($services as $service)
+											<tr>
+												<td>{{ ++$i }}</td>
+												<td>{{ $service->name }}</td>
+												<td>{{ $service->description }}</td>
+												<td><img src="/uploads/{{ $service->icon }}" width="100px"></td>
+												<td>
+												<form action="{{ route('services.destroy',$service->id) }}" method="POST">
+							
+														<!--   <a class="btn btn-info" href="{{ route('services.show',$service->id) }}">Show</a> -->
+												
+															<a class="btn btn-primary" href="{{ route('services.edit',$service->id) }}">Edit</a>
+												
+															@csrf
+															@method('DELETE')
+												
+													<button type="submit" class="btn btn-danger">Delete</button>
+												</form>
+												</td>
+											</tr>
+											@endforeach
+					
+										</tbody>
                </table>
 		</div>
 		<footer class="panel-footer">
@@ -78,10 +85,15 @@
 			</div>
            </footer>
 </section>
-
-    {!! $services->links() !!}
-      
+                        </section>
+                    </section> <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a> 
+				</section>
+				
+			 </section>
+        </section>
+    </section>
+   
+      {!! $services->links() !!}
+	  
 @endsection
 
-
-					

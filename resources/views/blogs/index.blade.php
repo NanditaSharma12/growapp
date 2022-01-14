@@ -8,9 +8,17 @@
         </div>
     @endif
    
-   
+	<section class="vbox">
+	<section>
+            <section class="hbox stretch">
+				<section id="content">
+                    <section class="vbox">
+                        <section class="scrollable padder">
+                            <div class="m-b-md">
+                                <h3 class="m-b-none">Blogs</h3>
+                            </div>
   <section class="panel panel-default">
-	<h2 align="center">Blogs </h2>
+	<header class="panel-heading">Manage Blogs </header>
 		<div class="row wrapper">
              <div class="col-sm-5 m-b-xs"> <select class="input-sm form-control input-s-sm inline v-middle"> <option value="0">Bulk action</option> <option value="1">Delete selected</option> <option value="2">Bulk edit</option> <option value="3">Export</option> </select>                                        
 				<button class="btn btn-sm btn-default">Apply</button> 
@@ -26,7 +34,6 @@
 			<table class="table table-striped b-t b-light">
 				<thead>
                            <tr>
-                               <th width="20"><label class="checkbox m-l m-t-none m-b-none i-checks"><input type="checkbox"><i></i></label></th>
                                <th class="th-sortable" data-toggle="class">No <span class="th-sort"> <i class="fa fa-sort-down text"></i> <i class="fa fa-sort-up text-active"></i> <i class="fa fa-sort"></i> </span> </th>
                                <th>Category</th>
                                <th>Title</th>
@@ -37,7 +44,6 @@
                  <tbody>
 					@foreach ($blogs as $blog)
                      <tr>
-                         <td><label class="checkbox m-l m-t-none m-b-none i-checks"><input type="checkbox" name="post[]"><i></i></label></td>
                          <td>{{ ++$i }}</td>
                          <td>{{ $blog->category }}</td>
                          <td>{{ $blog->title }}</td>
@@ -78,6 +84,13 @@
 			</div>
            </footer>
 </section>
+</section>
+                    </section> <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a> 
+				</section>
+				
+			 </section>
+        </section>
+    </section>
 
     {!! $blogs->links() !!}
       

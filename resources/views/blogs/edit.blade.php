@@ -1,15 +1,6 @@
 @extends('index')
    
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Edit Blog</h2>
-            </div>
-           
-        </div>
-    </div>
    
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -22,6 +13,18 @@
         </div>
     @endif
   
+   <section class="vbox">
+  <section>
+   <section class="hbox stretch">
+   <section id="content">
+      <section class="vbox">
+        <section class="scrollable padder">
+		<div class="row">
+			<div class="col-md-6">
+		 <div class="m-b-md"><h3 class="m-b-none">Blogs</h3></div>
+	<section class="panel panel-default">
+	<header class="panel-heading font-bold">Edit blog <a class="btn btn-sm btn-default pull-right" href="{{ route('blogs.index') }}" align="right"> Back</a></header>
+     <div class="panel-body">
     <form action="{{ route('blogs.update',$blog->id) }}" method="POST">
         @csrf
         @method('PUT')
@@ -31,8 +34,18 @@
 	     <div class="form-group"><label>Added By</label> <input type="text" name="added_by" class="form-control" value="{{ $blog->added_by }}" /></div>
 		 
 		 <button type="submit" class="btn btn-sm btn-default">Submit</button>
-		 <a class="btn btn-sm btn-default " href="{{ route('blogs.index') }}" align="right"> Back</a>
+
     </form>
-</div>
+	</div>
+      </section>
+	  </div>
+	  </div>
+      </section>
+      </section>
+      </section>
+      </section>
+      </section>
+      </section>
+
 @endsection
 
